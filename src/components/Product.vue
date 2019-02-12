@@ -6,7 +6,7 @@
 
 			<h5 class="text-center card-title"> {{ product.title }} </h5>
 			<p class="text-center card-text text-muted display-4"> {{ product.price }} </p>
-			<button class="btn btn-success form-control">Add to cart</button>
+			<button :disabled="is_in_cart" class="btn btn-success form-control" @click="$emit('add-to-cart',product)">{{ is_in_cart ? 'Added' : 'Add to cart'}}</button>
 			
 		</div>
 		
@@ -17,7 +17,7 @@
 <script >
 	
 	export default {
-		props:['product']
+		props:['product','is_in_cart']
 	}
 
 </script>
